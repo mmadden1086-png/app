@@ -1,0 +1,102 @@
+{
+  "name": "Task",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Task title"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes"
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "Today",
+        "This Week",
+        "Whenever"
+      ],
+      "default": "Today",
+      "description": "Urgency level"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Optional due date"
+    },
+    "due_time": {
+      "type": "string",
+      "description": "Optional due time (HH:mm)"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When task was completed"
+    },
+    "snoozed_until": {
+      "type": "string",
+      "format": "date",
+      "description": "Snoozed until this date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Home",
+        "Kids",
+        "Money",
+        "Relationship",
+        "Health",
+        ""
+      ],
+      "default": "",
+      "description": "Task category"
+    },
+    "effort": {
+      "type": "string",
+      "enum": [
+        "Quick",
+        "Medium",
+        "Heavy"
+      ],
+      "default": "Medium",
+      "description": "Effort level"
+    },
+    "why_this_matters": {
+      "type": "string",
+      "description": "Why this matters"
+    },
+    "clarity": {
+      "type": "string",
+      "description": "What does done look like"
+    },
+    "requested_by": {
+      "type": "string",
+      "description": "Name of who requested"
+    },
+    "is_flexible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether timing is flexible"
+    },
+    "repeat": {
+      "type": "string",
+      "enum": [
+        "none",
+        "daily",
+        "weekly",
+        "custom"
+      ],
+      "default": "none",
+      "description": "Repeat schedule"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
